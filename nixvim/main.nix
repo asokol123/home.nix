@@ -35,6 +35,7 @@
     colorscheme = "gruvbox-material";
 
     globals.mapleader = " ";
+
     keymaps = [
       {
         mode = [ "n" ];

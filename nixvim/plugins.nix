@@ -26,7 +26,14 @@
           };
         };
       };
-      nvim-tree.enable = true;
+      nvim-tree = {
+        updateFocusedFile = {
+          enable = true;
+        };
+        autoClose = true;
+        enable = true;
+        syncRootWithCwd = true;
+      };
       snacks.enable = true;
       noice.enable = true;
       which-key.enable = true;
@@ -46,7 +53,7 @@
       dap-ui.enable = true;
       crates.enable = true;
       cmp = {
-        autoEnableSources = true;
+        autoEnableSources = false;
         enable = true;
         settings = {
           mapping = {
@@ -61,19 +68,30 @@
 
           preselect = "cmp.PreselectMode.None";
 
-          sources = [
-            { name = "nvim_lsp"; }
-            { name = "path"; }
-            { name = "buffer"; }
-          ];
+          sources.__raw = ''
+            cmp.config.sources({
+                { name = "nvim_lsp" },
+            }, {
+                { name = "path" },
+                { name = "buffer" },
+                { name = "crates" },
+            })
+          '';
         };
       };
       lsp = {
         enable = true;
+        inlayHints = true;
         servers = {
-          nil_ls.enable = true;
           basedpyright.enable = true;
           clangd.enable = true;
+          docker_compose_language_service.enable = true;
+          dockerls.enable = true;
+          gopls.enable = true;
+          neocmake.enable = true;
+          nil_ls.enable = true;
+          serve_d.enable = true;
+          texlab.enable = true;
         };
         keymaps = {
           silent = true;
@@ -143,6 +161,7 @@
       vim-highlightedyank
       messenger-nvim
       vim-polyglot
+    ] ++ [
     ];
 
     keymaps = [

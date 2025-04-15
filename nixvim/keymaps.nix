@@ -89,6 +89,14 @@
           desc = "Live grep";
         };
       }
+      {
+        mode = "n";
+        key = "<leader>fW";
+        action = "<cmd>FzfLua live_grep_resume<CR>";
+        options = {
+          desc = "Live grep resume";
+        };
+      }
 
       {
         mode = "n";
