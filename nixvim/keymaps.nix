@@ -35,6 +35,26 @@
     };
     
     # FZF keymaps
+    "<leader>ff" = {
+      action = "<cmd>FzfLua files<CR>";
+      desc = "Find files";
+    };
+    "<leader>fo" = {
+      action = "<cmd>FzfLua oldfiles<CR>";
+      desc = "Find recent files";
+    };
+    "<leader>fb" = {
+      action = "<cmd>FzfLua buffers<CR>";
+      desc = "Find buffers";
+    };
+    "<leader>fg" = {
+      action = "<cmd>FzfLua git_grep<CR>";
+      desc = "Git grep";
+    };
+    "<leader>fl" = {
+      action = "<cmd>FzfLua lines<CR>";
+      desc = "Find lines in all buffers";
+    };
     "<leader>fq" = {
       action = "<cmd>FzfLua quickfix<CR>";
       desc = "Find quickfix";

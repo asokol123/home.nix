@@ -6,7 +6,7 @@ let
   });
 in {
   imports = [
-    ./nixvim/main.nix
+    ./nixvim
     nixvim.homeManagerModules.nixvim
   ];
 
