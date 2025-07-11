@@ -27,6 +27,8 @@
       none-ls.enable = true;
       auto-session.enable = true;
       aerial.enable = true;
+      neogit.enable = true;
+      nvim-ufo.enable = true;
     };
   };
 } 

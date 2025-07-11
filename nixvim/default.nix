@@ -32,6 +32,12 @@ in {
       wrap = false;
       linebreak = true;
       list = true;
+
+      # ufo
+      foldenable = true;
+      foldcolumn = "1";
+      foldlevel = 99;
+      foldlevelstart = 99;
     };
 
     # colorschemes.rose-pine.enable = true;
