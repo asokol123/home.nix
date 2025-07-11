@@ -1,7 +1,10 @@
-{
+{ lib, ... }:
+let
+  utils = import ./utils.nix { inherit lib; };
+  keymaps = import ./keymaps.nix;
+in {
   imports = [
     ./plugins
-    ./keymaps.nix
   ];
   programs.nixvim = {
     enable = true;
@@ -45,7 +48,7 @@
           desc = "Open/Close Neotree";
         };
       }
-    ];
+    ] ++ (utils.convertKeymaps keymaps);
 
     editorconfig.enable = true;
   };
