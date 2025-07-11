@@ -1,13 +1,11 @@
 { pkgs, lib, ... }:
 
 let
-  isDarwin = builtins.currentSystem == "aarch64-darwin";
   nixvim = import (builtins.fetchGit {
     url = "https://github.com/nix-community/nixvim";
   });
 in {
   imports = [
-    ./orbstack-module.nix
     ./nixvim/main.nix
     nixvim.homeManagerModules.nixvim
   ];
@@ -24,6 +22,9 @@ in {
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
   nix = {
     package = pkgs.nix;
     settings.experimental-features = [ "nix-command" "flakes" ];
@@ -34,8 +35,7 @@ in {
 
     yabai
     skhd
-
-    mold
+    eternal-terminal
 
     vscode
 
@@ -48,6 +48,9 @@ in {
     ncdu
     websocat
     bat
+    most
+    sshpass
+
     killall
 
     (python312.withPackages(python-pkgs: with python-pkgs; [
@@ -61,41 +64,42 @@ in {
     ]))
     uv
 
-    jetbrains-mono
+    cargo-cranky
+
     clang
     clang-tools
-    # vim staff and lsp
-    basedpyright
-    lua5_1
-    lua51Packages.luarocks
-    harper
-    lua-language-server
-    nil
-    gopls
-    zls
-  ] ++ lib.optionals isDarwin [
+    jdk21
+
+    jetbrains-mono
+    fira-code
+    open-dyslexic
+    cascadia-code
+    # gohufont # dpkg is broken
+
+    dbeaver-bin
+    firefox
+    kitty
     iterm2
     raycast
     slack
     spotify
-    telegram-desktop
-    discord
-    zoom-us
+    postman
+    jetbrains.pycharm-community-bin
   ];
 
   home.file = {
   };
 
+  home.sessionPath = [
+    "/Users/asokolovskii/.nix-profile/bin"
+  ];
+
   home.sessionVariables = {
     LIBRARY_PATH = ''${lib.makeLibraryPath [pkgs.libiconv]}''${LIBRARY_PATH:+:$LIBRARY_PATH}'';
+    RUSTFLAGS = "-L ${pkgs.libiconv}/lib";
   };
 
-  # services.emacs.enable = true;
-
   programs = {
-    orbstack = {
-      enable = true;
-    };
     command-not-found = {
       enable = true;
     };
@@ -105,8 +109,8 @@ in {
         co = "checkout";
       };
       enable = true;
-      userName = "Alexey Sokolovskiy";
-      userEmail = "alexej.sokolovskiy@gmail.com";
+      userName = "Aleksei Sokolovskii";
+      userEmail = "asokolovskii@bhft.com";
       difftastic = {
         enable = true;
       };
@@ -140,7 +144,7 @@ in {
     oh-my-posh = {
       enable = true;
       enableZshIntegration = true;
-      useTheme = "atomicBit";
+      useTheme = "poshmon";
     };
     ssh = {
       addKeysToAgent = "yes";
@@ -150,14 +154,6 @@ in {
     zoxide = {
       enable = true;
       enableZshIntegration = true;
-    };
-    wezterm = {
-      enable = true;
-      extraConfig = ''
-      return {
-        front_end = "WebGpu",
-      }
-      '';
     };
     zsh = {
       autocd = true;
@@ -173,7 +169,7 @@ in {
         path = "$ZDOTDIR/.zsh_history";
         size = 1000000000;
       };
-      initExtra = ''
+      initContent = ''
         [[ -f $HOME/.config/zsh/zshrc ]] && source ~/.config/zsh/zshrc
       '';
       oh-my-zsh = {
@@ -183,6 +179,15 @@ in {
         cd = "z";
         pip = "uv pip";
         avim = "NVIM_APPNAME=astronvim nvim";
+        cp = "cp -i";
+        mv = "mv -i";
+        rm = "rm -i";
+        rsync = "rsync -azvhP";
+        H = "| head";
+        T = "| tail";
+        G = "| grep";
+        L = "| less";
+        M = "| most";
       };
       syntaxHighlighting = {
         enable = true;

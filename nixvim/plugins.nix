@@ -52,33 +52,53 @@
       dap.enable = true;
       dap-ui.enable = true;
       crates.enable = true;
-      cmp = {
-        autoEnableSources = false;
+      blink-cmp = {
         enable = true;
         settings = {
-          mapping = {
-            "<C-d>" = "cmp.mapping.scroll_docs(-4)";
-            "<C-f>" = "cmp.mapping.scroll_docs(4)";
-            "<C-Space>" = "cmp.mapping.complete()";
-            "<C-e>" = "cmp.mapping.close()";
-            "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Insert}), {'i', 's'})";
-            "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Insert}), {'i', 's'})";
-            "<CR>" = "cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace })";
+          completion = {
+            list = {
+              selection = {
+                preselect = false;
+              };
+            };
           };
-
-          preselect = "cmp.PreselectMode.None";
-
-          sources.__raw = ''
-            cmp.config.sources({
-                { name = "nvim_lsp" },
-            }, {
-                { name = "path" },
-                { name = "buffer" },
-                { name = "crates" },
-            })
-          '';
+          keymap = {
+            "<Tab>" = [ "select_next" "fallback" ];
+            "<S-Tab>" = ["select_prev" "fallback" ];
+            "<S-K>" = [ "show_signature" "hide_signature" "fallback" ];
+            "<C-K>" = [ "show_documentation" "hide_documentation" "fallback" ];
+            "<CR>" = [ "accept" "fallback" ];
+            "<C-e>" = [ "show" ];
+          };
         };
       };
+      # cmp = {
+      #   autoEnableSources = false;
+      #   enable = true;
+      #   settings = {
+      #     mapping = {
+      #       "<C-d>" = "cmp.mapping.scroll_docs(-4)";
+      #       "<C-f>" = "cmp.mapping.scroll_docs(4)";
+      #       "<C-Space>" = "cmp.mapping.complete()";
+      #       "<C-e>" = "cmp.mapping.close()";
+      #       "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Insert}), {'i', 's'})";
+      #       "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Insert}), {'i', 's'})";
+      #       "<CR>" = "cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace })";
+      #     };
+      #
+      #     preselect = "cmp.PreselectMode.None";
+      #
+      #     sources.__raw = ''
+      #       cmp.config.sources({
+      #           { name = "nvim_lsp" },
+      #       }, {
+      #           { name = "path" },
+      #           { name = "buffer" },
+      #           { name = "crates" },
+      #       })
+      #     '';
+      #   };
+      # };
       lsp = {
         enable = true;
         inlayHints = true;
@@ -88,8 +108,10 @@
           docker_compose_language_service.enable = true;
           dockerls.enable = true;
           gopls.enable = true;
+          kotlin_language_server.enable = true;
+          lemminx.enable = true;
           neocmake.enable = true;
-          nil_ls.enable = true;
+          nixd.enable = true;
           serve_d.enable = true;
           texlab.enable = true;
         };
@@ -100,10 +122,11 @@
               action = "definition";
               desc = "Goto Definition";
             };
-            gr = {
-              action = "references";
-              desc = "Goto References";
-            };
+            # grr, gri, gra, grn
+            # gr = {
+            #   action = "references";
+            #   desc = "Goto References";
+            # };
             gD = {
               action = "declaration";
               desc = "Goto Declaration";
@@ -146,10 +169,10 @@
         };
       };
       lspkind.enable = true;
-      cmp-nvim-lsp.enable = true;
-      cmp-path.enable = true;
-      cmp-buffer.enable = true;
-      cmp-cmdline.enable = true;
+      # cmp-nvim-lsp.enable = true;
+      # cmp-path.enable = true;
+      # cmp-buffer.enable = true;
+      # cmp-cmdline.enable = true;
       diffview.enable = true;
       none-ls.enable = true;
       auto-session.enable = true;
