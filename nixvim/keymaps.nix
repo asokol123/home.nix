@@ -33,7 +33,7 @@
       action = "<cmd>FzfLua lsp_code_actions<cr>";
       desc = "Code actions";
     };
-    
+
     # FZF keymaps
     "<leader>ff" = {
       action = "<cmd>FzfLua files<CR>";
@@ -46,10 +46,6 @@
     "<leader>fb" = {
       action = "<cmd>FzfLua buffers<CR>";
       desc = "Find buffers";
-    };
-    "<leader>fg" = {
-      action = "<cmd>FzfLua git_grep<CR>";
-      desc = "Git grep";
     };
     "<leader>fl" = {
       action = "<cmd>FzfLua lines<CR>";
@@ -71,7 +67,7 @@
       action = "<cmd>FzfLua live_grep_resume<CR>";
       desc = "Live grep resume";
     };
-    
+
     # General utilities
     ";" = {
       action = ":";
@@ -81,7 +77,7 @@
       action = ":bd<CR>";
       desc = "Close current buffer";
     };
-    
+
     # Window splits
     "|" = {
       action = ":vsplit<CR>";
@@ -91,7 +87,11 @@
       action = ":split<CR>";
       desc = "Horizontal split window";
     };
-    
+    "<leader>gg" = {
+      action = ":Neogit<CR>";
+      desc = "Open neogit";
+    };
+
     # Window navigation
     "<C-l>" = {
       action = "<C-w>l";
@@ -110,13 +110,10 @@
       desc = "Switch to left window";
     };
   };
-  
-  # Можно добавить другие режимы при необходимости
+
   "v" = {
-    # Visual mode keymaps
   };
-  
+
   "i" = {
-    # Insert mode keymaps
   };
 }
