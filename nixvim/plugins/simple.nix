@@ -1,6 +1,7 @@
 {
   programs.nixvim = {
     plugins = {
+      lazydev.enable = true;
       # Interface
       lualine.enable = true;
       web-devicons.enable = true;
