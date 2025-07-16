@@ -34,8 +34,8 @@ in {
       list = true;
 
       # ufo
-      foldenable = true;
       foldcolumn = "1";
+      foldenable = true;
       foldlevel = 99;
       foldlevelstart = 99;
     };
@@ -45,16 +45,7 @@ in {
 
     globals.mapleader = " ";
 
-    keymaps = [
-      {
-        mode = [ "n" ];
-        key = "<leader>e";
-        action = "<cmd>NvimTreeToggle<cr>";
-        options = {
-          desc = "Open/Close Neotree";
-        };
-      }
-    ] ++ (utils.convertKeymaps keymaps);
+    keymaps = utils.convertKeymaps keymaps;
 
     editorconfig.enable = true;
   };

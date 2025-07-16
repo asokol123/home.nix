@@ -23,12 +23,16 @@
       dap-ui.enable = true;
       crates.enable = true;
       lspkind.enable = true;
-      diffview.enable = true;
       none-ls.enable = true;
       auto-session.enable = true;
       aerial.enable = true;
-      neogit.enable = true;
       nvim-ufo.enable = true;
+      oil.enable = true;
+      oil-git-status.enable = true;
+
+      # Git
+      neogit.enable = true;
+      diffview.enable = true;
     };
   };
 } 

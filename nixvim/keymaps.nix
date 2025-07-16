@@ -74,8 +74,16 @@
       desc = "Fuck shift";
     };
     "<leader>c" = {
-      action = ":bd<CR>";
+      action = "<cmd>bd<CR>";
       desc = "Close current buffer";
+    };
+    "<leader>E" = {
+      action = "<cmd>Oil<CR>";
+      desc = "Oil";
+    };
+    "<leader>e" = {
+      action = "<cmd>NvimTreeToggle<CR>";
+      desc = "Oil";
     };
 
     # Window splits
