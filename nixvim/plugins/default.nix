@@ -1,11 +1,12 @@
 { pkgs, ... }:
 {
   imports = [
-    ./simple.nix
-    ./fzf-lua.nix
-    ./nvim-tree.nix
     ./blink-cmp.nix
+    ./fzf-lua.nix
     ./lsp.nix
+    ./nvim-tree.nix
+    ./rustaceanvim.nix
+    ./simple.nix
   ];
 
   programs.nixvim = {

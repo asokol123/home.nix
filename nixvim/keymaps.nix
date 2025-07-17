@@ -95,9 +95,15 @@
       action = ":split<CR>";
       desc = "Horizontal split window";
     };
+
+    # Git
     "<leader>gg" = {
       action = ":Neogit<CR>";
       desc = "Open neogit";
+    };
+    "<leader>gd" = {
+      action = ":DiffviewOpen<CR>";
+      desc = "Open diffview";
     };
 
     # Window navigation
