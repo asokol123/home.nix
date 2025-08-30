@@ -1,13 +1,9 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 
-let
-  nixvim = import (builtins.fetchGit {
-    url = "https://github.com/nix-community/nixvim";
-  });
-in {
+{
   imports = [
     ./nixvim
-    nixvim.homeModules.nixvim
+    inputs.nixvim.homeModules.nixvim
   ];
 
   home.username = "asokolovskii";
@@ -155,9 +151,21 @@ in {
       useTheme = "poshmon";
     };
     ssh = {
-      addKeysToAgent = "yes";
       enable = true;
       includes = ["~/.ssh/custom-config"];
+      enableDefaultConfig = false;
+      matchBlocks."*" = {
+        forwardAgent = false;
+        addKeysToAgent = "yes";
+        compression = false;
+        serverAliveInterval = 0;
+        serverAliveCountMax = 3;
+        hashKnownHosts = false;
+        userKnownHostsFile = "~/.ssh/known_hosts";
+        controlMaster = "no";
+        controlPath = "~/.ssh/master-%r@%n:%p";
+        controlPersist = "no";
+      };
     };
     zoxide = {
       enable = true;
