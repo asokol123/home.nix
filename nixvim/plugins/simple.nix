@@ -23,7 +23,10 @@
       dap.enable = true;
       dap-ui.enable = true;
       crates.enable = true;
-      lspkind.enable = true;
+      lspkind = {
+        enable = true;
+        cmp.enable = false;
+      };
       none-ls.enable = true;
       auto-session.enable = true;
       aerial.enable = true;

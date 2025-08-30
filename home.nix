@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
 let
   nixvim = import (builtins.fetchGit {
@@ -7,7 +7,7 @@ let
 in {
   imports = [
     ./nixvim
-    nixvim.homeManagerModules.nixvim
+    nixvim.homeModules.nixvim
   ];
 
   home.username = "asokolovskii";
@@ -38,6 +38,7 @@ in {
     eternal-terminal
 
     vscode
+    zed-editor
 
     rustup
 
@@ -50,6 +51,11 @@ in {
     bat
     most
     sshpass
+    just
+    cmake
+    libiconv
+    zstd
+    tldr
 
     killall
 
@@ -76,14 +82,16 @@ in {
     cascadia-code
     # gohufont # dpkg is broken
 
+    colima
     dbeaver-bin
     firefox
     kitty
+    alacritty
     iterm2
     raycast
-    slack
     spotify
     postman
+    docker
     jetbrains.pycharm-community-bin
   ];
 
@@ -163,7 +171,7 @@ in {
       enable = true;
       # defaultKeymap = "viind";
       defaultKeymap = "emacs";
-      dotDir = ".config/zsh";
+      dotDir = "${config.xdg.configHome}/zsh";
       enableVteIntegration = true;
       history = {
         path = "$ZDOTDIR/.zsh_history";
@@ -176,13 +184,14 @@ in {
         enable = true;
       };
       shellAliases = {
-        cd = "z";
-        pip = "uv pip";
         avim = "NVIM_APPNAME=astronvim nvim";
+        cd = "z";
         cp = "cp -i";
         mv = "mv -i";
+        pip = "uv pip";
         rm = "rm -i";
         rsync = "rsync -azvhP";
+        ssh = "TERM=xterm-256color ssh";
         H = "| head";
         T = "| tail";
         G = "| grep";

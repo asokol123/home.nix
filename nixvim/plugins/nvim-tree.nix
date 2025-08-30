@@ -2,12 +2,12 @@
   programs.nixvim = {
     plugins = {
       nvim-tree = {
-        updateFocusedFile = {
-          enable = true;
+        settings = {
+          update_focused_file.enable = true;
+          sync_root_with_cwd = true;
         };
         autoClose = true;
         enable = true;
-        syncRootWithCwd = true;
       };
     };
   };

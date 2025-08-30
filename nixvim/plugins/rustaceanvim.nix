@@ -7,6 +7,12 @@
           server = {
             default_settings = {
               rust-analyzer = {
+                files = {
+                  excludeDirs = [
+                    ".direnv"
+                  ];
+                };
+
                 cargo = {
                   features = "all";
                 };
