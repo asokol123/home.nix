@@ -35,6 +35,8 @@
 
     vscode
     zed-editor
+    code-cursor
+    cursor-cli
 
     rustup
 
@@ -104,9 +106,6 @@
   };
 
   programs = {
-    command-not-found = {
-      enable = true;
-    };
     git = {
       aliases = {
         lol = "log --oneline --graph --all";
@@ -145,6 +144,10 @@
     htop.enable = true;
     jq.enable = true;
     lazygit.enable = true;
+    nix-index = {
+      enable = true;
+      enableZshIntegration = true;
+    };
     oh-my-posh = {
       enable = true;
       enableZshIntegration = true;
@@ -187,7 +190,7 @@
       };
       initContent = ''
         [[ -f $HOME/.config/zsh/zshrc ]] && source ~/.config/zsh/zshrc
-      '';
+      '' + builtins.readFile ./cursor.zsh;
       oh-my-zsh = {
         enable = true;
       };
