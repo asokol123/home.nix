@@ -37,6 +37,7 @@
     zed-editor
     code-cursor
     cursor-cli
+    utm
 
     rustup
 
