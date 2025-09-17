@@ -34,7 +34,7 @@
     eternal-terminal
 
     vscode
-    zed-editor
+    # zed-editor
     code-cursor
     cursor-cli
     utm
@@ -55,6 +55,10 @@
     libiconv
     zstd
     tldr
+    hydra-check
+
+    nix-output-monitor
+    nh
 
     killall
 
@@ -75,7 +79,7 @@
     clang-tools
     jdk21
 
-    jetbrains-mono
+    # jetbrains-mono
     fira-code
     open-dyslexic
     cascadia-code
@@ -88,7 +92,7 @@
     alacritty
     iterm2
     raycast
-    spotify
+    # spotify # spotify tries to download from webarchive and fails
     postman
     docker
     jetbrains.pycharm-community-bin
