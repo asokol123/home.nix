@@ -28,7 +28,7 @@
         cmp.enable = false;
       };
       none-ls.enable = true;
-      auto-session.enable = true;
+      # auto-session.enable = true;
       aerial.enable = true;
       nvim-ufo.enable = true;
       oil.enable = true;
