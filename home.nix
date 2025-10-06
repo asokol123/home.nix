@@ -83,12 +83,13 @@
     fira-code
     open-dyslexic
     cascadia-code
+    nerd-fonts.fira-code
     # gohufont # dpkg is broken
 
+    bitwarden-desktop
     colima
     dbeaver-bin
     firefox
-    kitty
     alacritty
     iterm2
     raycast
@@ -148,6 +149,10 @@
     };
     htop.enable = true;
     jq.enable = true;
+    kitty = {
+      enable = true;
+      enableGitIntegration = true;
+    };
     lazygit.enable = true;
     nix-index = {
       enable = true;

@@ -13,10 +13,15 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }@inputs:
+    { nixpkgs, home-manager, nix-index-database, ... }@inputs:
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -28,6 +33,7 @@
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [
+          nix-index-database.homeModules.nix-index
           ./home.nix
           ./nixvim
         ];
