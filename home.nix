@@ -62,7 +62,7 @@
 
     killall
 
-    (python312.withPackages(python-pkgs: with python-pkgs; [
+    (python313.withPackages(python-pkgs: with python-pkgs; [
       autopep8
       ipython
       jupytext
