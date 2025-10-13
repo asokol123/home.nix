@@ -16,7 +16,7 @@
           nixd.enable = true;
           pyright.enable = true;
           serve_d.enable = true;
-          sourcekit.enable = true;
+          # sourcekit.enable = true;
           texlab.enable = true;
         };
         keymaps = {
