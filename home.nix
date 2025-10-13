@@ -89,14 +89,14 @@
     bitwarden-desktop
     colima
     dbeaver-bin
-    firefox
+    # firefox
     alacritty
     iterm2
     raycast
     # spotify # spotify tries to download from webarchive and fails
     postman
     docker
-    jetbrains.pycharm-community-bin
+    # jetbrains.pycharm-community-bin
   ];
 
   home.file = {
