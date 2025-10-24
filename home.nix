@@ -86,6 +86,7 @@
     nerd-fonts.fira-code
     # gohufont # dpkg is broken
 
+    openconnect
     bitwarden-desktop
     colima
     dbeaver-bin
