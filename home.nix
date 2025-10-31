@@ -114,16 +114,21 @@
 
   programs = {
     git = {
-      aliases = {
-        lol = "log --oneline --graph --all";
-        co = "checkout";
-      };
       enable = true;
-      userName = "Aleksei Sokolovskii";
-      userEmail = "asokolovskii@bhft.com";
-      difftastic = {
-        enable = true;
+      settings = {
+        alias = {
+          lol = "log --oneline --graph --all";
+          co = "checkout";
+        };
+        user = {
+          name = "Aleksei Sokolovskii";
+          email = "asokolovskii@bhft.com";
+        };
       };
+    };
+    difftastic = {
+      enable = true;
+      git.enable = true;
     };
     direnv = {
       enable = true;
