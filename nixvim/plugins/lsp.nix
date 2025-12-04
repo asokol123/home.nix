@@ -10,7 +10,7 @@
           docker_compose_language_service.enable = true;
           dockerls.enable = true;
           gopls.enable = true;
-          kotlin_language_server.enable = true;
+          # kotlin_language_server.enable = true;
           lemminx.enable = true;
           neocmake.enable = true;
           nixd.enable = true;

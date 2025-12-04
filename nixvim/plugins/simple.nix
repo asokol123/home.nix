@@ -34,9 +34,12 @@
       oil.enable = true;
       oil-git-status.enable = true;
 
+      neotest.enable = true;
+
       # Git
       neogit.enable = true;
       diffview.enable = true;
+      fugitive.enable = true;
     };
   };
 } 

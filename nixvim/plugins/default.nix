@@ -16,8 +16,11 @@
       vim-highlightedyank
       messenger-nvim
       vim-polyglot
+      fugitive-gitlab-vim
     ] ++ [
     ];
+
+    globals.fugitive_gitlab_domains = ["https://gitlab.advsys.work"];
 
     keymaps = [
       {

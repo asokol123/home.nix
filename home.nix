@@ -56,6 +56,7 @@
     zstd
     tldr
     hydra-check
+    wireguard-tools
 
     nix-output-monitor
     nh
@@ -90,7 +91,10 @@
     bitwarden-desktop
     colima
     dbeaver-bin
-    # firefox
+    firefox
+    brave
+    google-chrome
+    chromedriver
     alacritty
     iterm2
     raycast
@@ -98,6 +102,7 @@
     postman
     docker
     # jetbrains.pycharm-community-bin
+    jetbrains.idea-community-bin
   ];
 
   home.file = {
@@ -185,6 +190,9 @@
         controlPath = "~/.ssh/master-%r@%n:%p";
         controlPersist = "no";
       };
+    };
+    zed-editor = {
+      enable = true;
     };
     zoxide = {
       enable = true;
