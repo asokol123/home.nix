@@ -101,8 +101,9 @@
     # spotify # spotify tries to download from webarchive and fails
     postman
     docker
-    # jetbrains.pycharm-community-bin
+    jetbrains.pycharm-community-bin
     jetbrains.idea-community-bin
+    jetbrains.rider
   ];
 
   home.file = {
